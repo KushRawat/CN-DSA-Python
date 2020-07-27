@@ -3,7 +3,7 @@ def checkIndex(arr, x):
     #base
     l = len(arr)
     if l == 0:
-        return -1
+        return -1 # no index denotes -1 here
     if arr[0] == x:
         return 0
     
