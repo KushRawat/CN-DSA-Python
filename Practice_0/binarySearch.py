@@ -1,6 +1,6 @@
 # Program to carry out binary search using recursion
 def BinarySearch(a, x, si, ei):
-    if si > ei:
+    if si > ei: # if si == ei: , this would work too
         return -1
     mid = si + ei // 2
     if x == a[mid]:
