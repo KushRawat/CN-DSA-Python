@@ -1,24 +1,21 @@
-def checkPalindrome(s, si, ei):
-    if si <= ei:
-        return "true"
-    
-    while si <= ei:
-        if s[si] != s[ei]:
-            return "false"
-        if s[si] == s[ei]:
-            si = si + 1
-            ei = ei + 1
-            return 
-    
-    checkPalindrome(s, si + 1, ei - 1)
-    #while si <= ei:
-     #   if s[si] != s[ei]:
-      #      return "false"
-       # if s[si] == s[ei]:
-        #    si = si + 1
-         #   ei = ei + 1
-          #  return 
+def checkPal(i, si, ei):
+    if si == ei:
+        return True
+    if i[si] != i[ei]:
+        return False
+    if si < ei:
+        return checkPal(i, si + 1, ei  - 1)
+    return True
 
-print(checkPalindrome("abwtwbaa", 0, 3))
-        
-        
+def checkPalindrome(x):
+    l = len(x)
+    if l == 0:
+        return True
+    return checkPal(x, 0,  l -1)
+
+
+s = input()
+if checkPalindrome(s):
+    print("true")
+else:
+    print("false")
