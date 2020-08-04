@@ -1,17 +1,11 @@
-def pairStar(s, si):
+def pairStar(s):
     if len(s) == 0 or len(s) == 1:
-        return 
-
-    s1 = " "
-    s1 = s1 + s[si]
-    #smallString = s[1:]
-    #smallOutput =  pairStar(smallString)
-    x = s[0]
-    y = s[1]
-    if x == y:
-        s2 = s2 + "*"
-
-    #return ('*'.join([x, y])) + pairStar(smallString)
-    return pairStar(s, si + 1)
+        return s
+    
+    if s[0] == s[1]:
+        return s[0] + "*" + pairStar(s[1:])
+    else:
+        return s[0] + pairStar(s[1:])
+    
 s = input()
-print(pairStar(s, 0))
+print(pairStar(s))
