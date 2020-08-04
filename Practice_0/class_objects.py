@@ -1,34 +1,17 @@
 class Student: 
-    pass 
+    def __init__(self): # when any object is created it will pass through __init__ function  
+        self.name = "Kush" # self and created object will have the same address
+        self.rollNumber = "07" # rollNumber is an attribute of self and the created object under 
+                               # this class 
 
-s1 = Student() 
-s2 = Student()
-s3 = Student()
-
-s1.name = "Kush" # adding attribute name
-
-s2.rollNumber = "7" # adding attribute rollNumber
-
-s3.name = "Love" # adding attribute name
-s3.rollNumber = "17" # adding attribute rollNumber
-
-print(s1.name) # returns attribute value
-
-print(s1.__dict__) # printing attributes and data of object s1
-print(s2.__dict__) # printing attributes and data of object s2
-print(s3.__dict__) # printing attributes and data of object s3
-
-s1.testkey = "testvalue" # function 1/4 to add attribute and data together to an object 
-print(s1.testkey)
+s1 = Student() # creating an object 
 print(s1.__dict__)
 
-print(hasattr(s1, "name")) #function 2/4 to check whether the object has attribute or not
+s2 = Student() # creating a differnet object with a different address
+print(s2.__dict__)
 
-print(getattr(s1, "name")) # function 3/4 to get attribute data from the object
-print(getattr(s2, "name", "cool")) # function 3/4 returns third argument in case attribute 
-                                   # is not present in the object
-print(getattr(s1, "testkey", "cool")) # function 3/4 does not return 3rd argument if attribute found
-                                      # in object rather returns the attribute found
-print(s1.__dict__)
-delattr(s1, "name") # function 4/4 to delete attribute from the object
-print(s1.__dict__)
+print(s1,s2) # Both objects have different address but same attributes  
+
+s3 = Student("Love", 17) # this is wrong since now total number of arguments are three: self, "Love", 
+                        #  17. __init__ is passing all these three arguments which is causing an error
+print(s3.__dict__)
