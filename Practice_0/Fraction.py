@@ -1,16 +1,41 @@
 class Fraction:
-    def __init__(self, x = 0, y = 1): # assigning default values or default parameters
+    def __init__(self, x = 0, y = 1):
+            
+        if y == 0:
+            y = 1
+            
         self.num = x
         self.den = y
 
-f = Fraction(2, 3)                  # created a function with two integer values
-print(f.__dict__)
+    def print(self):
+        if self.num == 0:
+            print(0)
+        elif self.den == 1:
+            print(self.num)
+        #elif self.den == 0:
+           # print("invalid")
+        else:
+            print(self.num, '/' , self.den)
+        
+    def simplify(self):
+        if self.num == 0:
+            self.den == 1
+            return 
+        current = min(self.num, self.den)
+        while current > 1:
+            if self.num % current == 0 and self.den % current == 0:
+                break
+            current -= 1
+        self.num = self.num // current
+        self.den = self.den // current 
+        #print(self.num, "/" , self.den)
 
-f1 = Fraction()                     # created a function wuth no values
-print(f1.__dict__)
+f = Fraction(10,5)                  
 
-f2 = Fraction(2)                       # created a function with one value
-print(f2.__dict__)
 
-f3 = Fraction(y = 5)                # created a function with 
-print(f3.__dict__)
+f.simplify()
+f.print()
+
+
+
+
