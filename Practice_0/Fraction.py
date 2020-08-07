@@ -1,12 +1,12 @@
 class Fraction:
     def __init__(self, x = 0, y = 1):
             
-        if y == 0:
-            y = 1
+        if y == 0: # case to taake care if denominator is zero
+            y = 1  
             
         self.num = x
         self.den = y
-
+  
     def print(self):
         if self.num == 0:
             print(0)
@@ -18,7 +18,7 @@ class Fraction:
             print(self.num, '/' , self.den)
         
     def simplify(self):
-        if self.num == 0:
+        if self.num == 0: #case to take care if numerator is zero
             self.den == 1
             return 
         current = min(self.num, self.den)
@@ -30,12 +30,11 @@ class Fraction:
         self.den = self.den // current 
         #print(self.num, "/" , self.den)
 
-f = Fraction(10,5)                  
+f = Fraction(0,5)                  
 
 
 f.simplify()
 f.print()
-
 
 
 
