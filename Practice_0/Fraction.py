@@ -30,11 +30,18 @@ class Fraction:
         self.den = self.den // current 
         #print(self.num, "/" , self.den)
 
-f = Fraction(0,5)                  
+    def add(self, otherFraction): # self is the first argument as f1 in line 39 and f2 is the 2nd arg in line 32
+        newNum = otherFraction.den*self.num + otherFraction.num * self.den
+        newDen = otherFraction.den * self.den
+        self.num = newNum
+        self.den = newDen
+        self.simplify()   # calling simplify function to simplify the fraction
 
+f1 = Fraction(2, 3)
+f2 = Fraction(1, 3)                  
 
-f.simplify()
-f.print()
-
+f1.add(f2)  # this call gives f1 as self to class function 
+            # and f2 as the other argument in that class function
+f1.print()
 
 
