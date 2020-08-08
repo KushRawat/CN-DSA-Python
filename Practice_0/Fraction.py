@@ -38,7 +38,7 @@ class Fraction:
         self.simplify()   # calling simplify function to simplify the fraction
 
     def multiply(self, otherFraction):
-        self.num = self.num * otherFraction.num # no need to make new var
+        self.num = self.num * otherFraction.num # no need to make new variable
         self.den = self.den * otherFraction.den
         self.simplify()
 
