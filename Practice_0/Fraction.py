@@ -37,10 +37,15 @@ class Fraction:
         self.den = newDen
         self.simplify()   # calling simplify function to simplify the fraction
 
-f1 = Fraction(2, 3)
-f2 = Fraction(1, 3)                  
+    def multiply(self, otherFraction):
+        self.num = self.num * otherFraction.num # no need to make new var
+        self.den = self.den * otherFraction.den
+        self.simplify()
 
-f1.add(f2)  # this call gives f1 as self to class function 
+f1 = Fraction(3, 3)
+f2 = Fraction(1, 1)                  
+    
+f1.multiply(f2)  # this call gives f1 as self to class function 
             # and f2 as the other argument in that class function
 f1.print()
 
