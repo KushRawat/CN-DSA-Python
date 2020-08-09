@@ -8,8 +8,10 @@ class Complex():
         self.imag = str(self.imag + otherNumber.imag)
         
     def multiply(self, otherNumber):
-        self.real = str((self.real * otherNumber.real * -1) + (self.imag * otherNumber.imag))
-        self.imag = str((self.real * otherNumber.imag) + (self.imag * othreNumber.real))
+        a = (self.real * otherNumber.real) - (self.imag * otherNumber.imag)
+        b = (self.real * otherNumber.imag) + (self.imag * othreNumber.real)
+        self.real = str(a)
+        self.imag = str(b)
         
     def print(self):
         print(self.num + " + " + "i" + self.imag)
