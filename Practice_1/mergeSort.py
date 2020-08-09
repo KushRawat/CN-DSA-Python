@@ -1,3 +1,11 @@
+import time
+
+def createReverseArray(n): # for TCA
+    a = []
+    for i in range(n, 0, -1):
+        a.append(i)
+    return a
+
 def merge(a1,a2,arr):
     i=0
     j=0
@@ -19,6 +27,7 @@ def merge(a1,a2,arr):
         arr[k]=a2[j]
         k=k+1
         j=j+1
+
 def mergeSort(arr):
     if len(arr)== 0 or len(arr)==1:
         return
@@ -30,7 +39,18 @@ def mergeSort(arr):
     merge(a1,a2,arr)
 
 # Main
-n=int(input())
-arr=list(int(i) for i in input().strip().split(' '))
-mergeSort(arr)
-print(*arr)
+#n=int(input())
+#arr=list(int(i) for i in input().strip().split(' '))
+#mergeSort(arr)
+#print(*arr)
+
+#import time # for TCA
+
+n = int(input())
+
+a = createReverseArray(n)
+start = time.time()
+mergeSort(a)
+end = time.time()
+result = (end - start)
+print(result)
