@@ -3,18 +3,17 @@ class Complex():
         self.real = x
         self.imag = y
         
-	def add(self, otherNumber):
+    def add(self, otherNumber):
         self.real = str(self.real + otherNumber.real)
         self.imag = str(self.imag + otherNumber.imag)
-        
-    def multiply(self, otherNumber):
-        a = (self.real * otherNumber.real) - (self.imag * otherNumber.imag)
-        b = (self.real * otherNumber.imag) + (self.imag * othreNumber.real)
-        self.real = str(a)
-        self.imag = str(b)
-        
+
+    def multiply(self, other):
+        a=self.real*other.real - self.imag*other.imag
+        b= self.imag*other.real + self.real*other.imag
+        self.real=str(a)
+        self.imag=str(b)
     def print(self):
-        print(self.num + " + " + "i" + self.imag)
+        print(self.real + " + " + "i" + self.imag)
         
 n1 = list(int(x) for x in input().split())
 n2 = list(int(x) for x in input().split())
@@ -28,7 +27,7 @@ if n3 == 1:
     c1.print()
     
 elif n3 == 2:
-    c1 = Complex(n1[0], n2[1])
+    c1 = Complex(n1[0], n1[1])
     c2 = Complex(n2[0], n2[1])
     c1.multiply(c2)
     c1.print()
