@@ -10,6 +10,11 @@ class Vehicle:
     def setMaxSpeed(self, maxSpeed):              # creating set function
         self.__maxSpeed = maxSpeed
 
+    def print(self):                                # Creating a print function for Vehicle properties 
+                                                    # since this makes more sense
+        print("Color: ", self.color)
+        print("Max Speed: ", self.__maxSpeed)
+
 class Car(Vehicle):                     
     def __init__(self, color, maxSpeed, numGears, isConvertible): 
         super().__init__(color, maxSpeed)   
@@ -17,8 +22,8 @@ class Car(Vehicle):
         self.isConvertible = isConvertible
 
     def printCar(self):                        
-        print("Color :", self.color)
-        print("Max Speed :", self.setMaxSpeed() ,"km/hr") # calling getMaxSpeed function 
+        self.print()                                # Calling print function from parent class, super().print()
+                                                    # can also be used
         print("Number of Gears :", self.numGears)
         print("Is Convertible :", self.isConvertible)
 
