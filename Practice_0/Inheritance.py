@@ -18,7 +18,7 @@ class Car(Vehicle):
 
     def printCar(self):                        
         print("Color :", self.color)
-        print("Max Speed :", self.getMaxSpeed() ,"km/hr") # calling getMaxSpeed function 
+        print("Max Speed :", self.setMaxSpeed() ,"km/hr") # calling getMaxSpeed function 
         print("Number of Gears :", self.numGears)
         print("Is Convertible :", self.isConvertible)
 
