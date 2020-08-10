@@ -3,6 +3,7 @@
 class Father:
     def __init__(self):
         self.name = "Love"
+        #super().__init__()      # confusion
     
     def print(self):
         print("Print of Father called")
@@ -10,6 +11,7 @@ class Father:
 class Mother:
     def __init__(self):
         self.name = "Kush"
+        #super().__init__()    # confusion
 
     def print(self):
         print("Print of Mother called")
@@ -18,11 +20,10 @@ class Child(Mother, Father):
     def __init__(self):
         super().__init__()
     
-    def childPrint(self):
+    def print(self):
         print("The name of child is", self.name)
 
-#c = Child()
-#c.print()        
+c = Child()
+c.print()        
 #c.childPrint()   
-print(Child.mro())  # This gives the method resolution order, the order in which class and attributes will be 
-                    # accessed respectively
+print(Child.mro())  
