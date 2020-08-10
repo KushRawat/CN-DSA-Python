@@ -21,10 +21,11 @@ class Car(Vehicle):
         self.isConvertible = isConvertible
 
     def print(self):                        
-        #self.print()                     
+        self.print() # this will lead to an error since it will be stuck in recursion, if we look carefully 
+                     # we have called recursion here, and there is no base case to stop recursion
+
         print("Number of Gears :", self.numGears)
         print("Is Convertible :", self.isConvertible)
 
 C = Car("Black", 299, 7, False)
-C.print()    # print function from class Car is being called instead of print from vehicle class since there
-             # is an order --> class itself > parent class in case they both have a function with same name
+C.print()    
