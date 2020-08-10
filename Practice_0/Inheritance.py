@@ -1,18 +1,24 @@
 # Learning how inheritance works
-class Vehicle:                          # Parent class
-    def __init__(self, color, maxSpeed): # Creating constructor, assigning properties to it
-        self.color = color
-        self.maxSpeed = maxSpeed
+class Vehicle:                          
+    def __init__(self, color, maxSpeed): 
+        self.color = color               # public member
+        self.__maxSpeed = maxSpeed       # private member (__ in front)
+    
+    def getMaxSpeed(self):                     # creating get function to get access to private member
+        return self.__maxSpeed
+    
+    def setMaxSpeed(self, maxSpeed):              # creating set function
+        self.__maxSpeed = maxSpeed
 
-class Car(Vehicle):                     # Child Class,Inherits Vehicle
-    def __init__(self, color, maxSpeed, numGears, isConvertible): # added two more properties
-        super().__init__(color, maxSpeed)    # Super is used to call properties of parent function
+class Car(Vehicle):                     
+    def __init__(self, color, maxSpeed, numGears, isConvertible): 
+        super().__init__(color, maxSpeed)   
         self.numGears = numGears
         self.isConvertible = isConvertible
 
-    def printCar(self):                         # Creating functionality/method
+    def printCar(self):                        
         print("Color :", self.color)
-        print("Max Speed :", self.maxSpeed ,"km/hr")
+        print("Max Speed :", self.getMaxSpeed() ,"km/hr") # calling getMaxSpeed function 
         print("Number of Gears :", self.numGears)
         print("Is Convertible :", self.isConvertible)
 
