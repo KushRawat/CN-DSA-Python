@@ -21,9 +21,8 @@ class Car(Vehicle):
         self.isConvertible = isConvertible
 
     def print(self):                        
-        self.print() # this will lead to an error since it will be stuck in recursion, if we look carefully 
-                     # we have called recursion here, and there is no base case to stop recursion
-
+        super().print()  # super() here helps rectifying the mistake when we call self.print()
+                         # It calls print function from its parent class
         print("Number of Gears :", self.numGears)
         print("Is Convertible :", self.isConvertible)
 
