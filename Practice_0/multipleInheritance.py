@@ -3,7 +3,7 @@
 class Father:
     def __init__(self):
         self.name = "Love"
-        #super().__init__()      # confusion
+        super().__init__()      # confusion
     
     def print(self):
         print("Print of Father called")
@@ -11,7 +11,7 @@ class Father:
 class Mother:
     def __init__(self):
         self.name = "Kush"
-        #super().__init__()    # confusion
+        super().__init__()    # confusion
 
     def print(self):
         print("Print of Mother called")
