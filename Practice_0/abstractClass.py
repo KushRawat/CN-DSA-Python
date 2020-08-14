@@ -3,11 +3,13 @@ from abc import ABC,abstractmethod     #abc being the module, ABC the class, abs
 class Automobile(ABC):
     
     def __init__(self):
+        #self.name = "COOL"        wont work   if super().self called in line 29
         print("Automobile created")
 
     @abstractmethod
     def start(self):
-        pass
+        #self.name = "cool"        wont work  ""                                ""
+        print("Start of automobile called")
 
     @abstractmethod
     def stop(self):
@@ -23,10 +25,11 @@ class Car(Automobile):
         print("Car created")
         self.name = name
 
-    def start(self):   # all abstract methods need to be implemented to work 
-        pass
+    def start(self):   
+        super().start()              # calling start func from abstart parent class
+        print("Start of car called")
 
-    def stop(self):    # otherwise there will be an error
+    def stop(self):    
         pass
 
     def drive(self):
@@ -46,6 +49,7 @@ class Bus(Automobile):
         pass
     
 c1 = Car("G-Wagon")
+c1.start()
 c2 = Bus("pl")
 
 
