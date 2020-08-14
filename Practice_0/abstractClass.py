@@ -19,9 +19,9 @@ class Automobile(ABC):
 
 class Car(Automobile):
 
-    #def __init__(self, name):
-     #   print("Car created")
-      #  self.name = name
+    def __init__(self, name):
+        print("Car created")
+        self.name = name
 
     def start(self):   # all abstract methods need to be implemented to work 
         pass
@@ -32,8 +32,21 @@ class Car(Automobile):
     def drive(self):
         pass
 
-c1 = Car() # since class Car has no init funtion init of parent class Automobile will be called
+class Bus(Automobile):
+    def __init__(self, name):
+        print("Bus created")
 
+    def start(self):
+        pass
+    
+    def stop(self):
+        pass
+
+    def drive(self):
+        pass
+    
+c1 = Car("G-Wagon")
+c2 = Bus("pl")
 
 
 
