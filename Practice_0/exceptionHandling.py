@@ -10,8 +10,8 @@ while True:
         if den == 0:
             raise ZeroDenominatorError("Zero Denominator error raised")    # raising custom  error     
             # raise ZeroDenominatorError()      # will work without argument too
-        print(num/den)
-        break                           
+        #print(num/den)
+        #break                           
     except (ValueError):                        
         print("Numerator and denominator should be integers")
     except ZeroDivisionError:                      # this will run since ZeroDivisionError's all 
@@ -24,3 +24,9 @@ while True:
         print('Unknown error occured')           # defualt except needs to be in the last since the block runs
                                              # in order and checks all specified excepts first, if none found 
                                              # defualt except runs 
+    else:                                   # when no exception will be there it will run else
+        print(num/den)
+        break
+    finally:
+        print("This will be printed irrespective of anything") # finally runs anyway, irrespective of any 
+                                                                # exception or not
