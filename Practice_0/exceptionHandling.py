@@ -4,9 +4,13 @@ while True:
     try:                                      
         num = int(input('Enter number:'))
         den = int(input('Enter number:'))
+        if den == 0:
+            raise ZeroDivisionError         # custom exception
+            #raise NameError                # this will cause error here since NameError isnt 
+                                            # called below in exceptions
         print(num/den)
         break                           
-    except (ValueError,ZeroDivisionError):                        # common exception
+    except (ValueError):                        
         print("Numerator and denominator should be integers")
-   # except ZeroDivisionError:                   # adding multiple exceptions
-    #    print("Denominator cannot be zero")
+    except ZeroDivisionError:                
+        print("Denominator cannot be zero") 
