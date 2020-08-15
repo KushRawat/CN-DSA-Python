@@ -4,5 +4,5 @@ try:                                      # makes the code run normally
     num = int(input('Enter number:'))
     den = int(input('Enter number:'))
     print(num/den)
-except:                        # handles when specified error comes into picture
+except:                        # handles all errors when no error mentioned
     print("Numerator and denominator should be integers")
