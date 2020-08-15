@@ -5,6 +5,8 @@ while True:
         num = int(input('Enter number:'))
         den = int(input('Enter number:'))
         print(num/den)
-        break                           # correct inputs will break the while loop
-    except:                        
+        break                           
+    except ValueError:                        
         print("Numerator and denominator should be integers")
+    except ZeroDivisionError:                   # adding multiple exceptions
+        print("Denominator cannot be zero")
