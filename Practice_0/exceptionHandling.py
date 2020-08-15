@@ -6,7 +6,7 @@ while True:
         den = int(input('Enter number:'))
         print(num/den)
         break                           
-    except ValueError:                        
+    except (ValueError,ZeroDivisionError):                        # common exception
         print("Numerator and denominator should be integers")
-    except ZeroDivisionError:                   # adding multiple exceptions
-        print("Denominator cannot be zero")
+   # except ZeroDivisionError:                   # adding multiple exceptions
+    #    print("Denominator cannot be zero")
