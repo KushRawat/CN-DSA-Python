@@ -6,13 +6,24 @@ class Node:
         self.data = data
         self.next = None
 
-a = Node(14)
-b = Node(15)
-a.next = b
-print(a.data)
-print(b.data)
-print(a.next.data)
-print(a)
-print(a.next)       # same address
-print(b)            # same address   
-print(b.next.data)  # error
+def takeInput():
+
+    inputList = [int(ele) for ele in input().split()]
+    head = None
+    for currData in inputList:
+        if inputList == -1:
+            break
+        
+        newNode = Node(currData)
+        if head is None:
+            head = newNode 
+        else:
+            curr = head
+            while curr.next is not None:
+                curr = curr.next
+            curr.next = newNode
+
+    return head 
+
+head = takeInput()
+
