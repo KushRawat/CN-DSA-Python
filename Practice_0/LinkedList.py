@@ -6,6 +6,13 @@ class Node:
         self.data = data
         self.next = None
 
+def printLL(head):
+    while head is not None:
+        print(str(head.data) + "->", end = "")
+        head = head.next
+    print("None")
+    return
+
 def takeInput():
 
     inputList = [int(ele) for ele in input().split()]
@@ -26,4 +33,4 @@ def takeInput():
     return head 
 
 head = takeInput()
-
+printLL(head)
