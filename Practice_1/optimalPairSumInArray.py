@@ -3,66 +3,40 @@
 # While printing a pair, print the smaller element first.
 # That is, if a valid pair is (6, 5) print "5 6". There is no constraint that out of 5 pairs which have to be printed in 1st line. You can print pairs in any order, just be careful about the order of elements in a pair.
 
-def merge(arr1, arr2, arr):   # will be used in mergeSort
-    i = 0
-    j = 0
-    k = 0
-    
-    while i < len(arr1) and j < len(arr2):
-        if arr1[i] < arr2[j]:
-            arr[k] = arr1[i]
-            k = k + 1
-            i = i + 1
-        else:
-            arr[k] = arr2[j]
-            k = k + 1
-            j = k + 1
-    while i < len(arr1):
-        arr[k] = arr1[i]
-        k = k + 1
-        i = i + 1
-    while j < len(arr2):
-        arr[k] = arr2[j]
-        k = k + 1
-        j = j + 1
-            
-
-def mergeSort(arr):       # will be used in pairSum
-    if len(arr) == 0 or len(arr) == 1:
-        return
-    
-    mid = len(arr) // 2
-    a1 = arr[:mid]
-    a2 = arr[mid:]
-    
-    mergeSort(a1)
-    mergeSort(a2)
-    merge(a1, a2, arr)
-    
 def pairSum(arr, x):
     
-    mergeSort(arr)
+    arr.sort()
     
-    i = 0
-    j = len(arr) - 1
-    while i < j:
-        if (arr[i] + arr[j]) < x:
-            i = i + 1
-        elif (arr[i] + arr[j]) > x:
-            j = j - 1
+    size = len(arr)
+    start = 0
+    end = size - 1
+    while start < end:
+        if (arr[start] + arr[end]) < x:
+            start += 1
+        elif (arr[start] + arr[end]) > x:
+            end -= 1
         else:
-            ic = arr.count(arr[i])
-            jc = arr.count(arr[j])
-            if ic > 1 or jc > 1:
-                count = ic * jc
-                return (arr[i], arr[j]) * count
+            product = 0
+            if arr[start] == arr[end]:
+                count = end - start + 1
+                product = count * (count - 1) // 2
+                start = end
             else:
-            	return (arr[i], arr[j])
-        i = i + 1
-        j = j - 1
-        
+                startCount = 1
+                endCount = 1
+                while start + 1 < end and arr[start + 1] == arr[start]:
+                    startCount = startCount + 1
+                    start = start + 1
+                while start < end - 1 and arr[end - 1] == arr[end]:#
+                    endCount = endCount + 1
+                    end = end - 1
+                product = startCount * endCount
+            for j in range(product):
+                print(arr[start], arr[end])
+            start = start + 1
+            end = end - 1
     
 n=int(input())
 arr=list(int(i) for i in input().strip().split(' '))
 sum=int(input())
-print(pairSum(arr, sum))
+pairSum(arr, sum)
