@@ -6,14 +6,14 @@ class Node:
         self.data = data
         self.next = None
 
-def printLL(head):
+def printLL(head):             # printing the linked list
     while head is not None:
         print(str(head.data) + "->", end = "")
         head = head.next
     print("None")
     return
 
-def takeInput():
+def takeInput():                # taking input and converting it into a linked list
 
     inputList = [int(ele) for ele in input().split()]
     head = None
