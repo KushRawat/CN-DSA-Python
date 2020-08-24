@@ -32,5 +32,5 @@ def takeInput():                # taking input and converting it into a linked l
 
     return head 
 
-head = takeInput()
-printLL(head)
+head = takeInput()     # call for linked list formatio
+printLL(head)           # call for printing the linked list
