@@ -19,7 +19,7 @@ def takeInput():                # taking input and converting it into a linked l
     head = None
     tail = None                   # added tail
     for currData in inputList:
-        if inputList == -1:
+        if currData == -1:
             break
         
         newNode = Node(currData)
