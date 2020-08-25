@@ -17,6 +17,7 @@ def takeInput():                # taking input and converting it into a linked l
 
     inputList = [int(ele) for ele in input().split()]
     head = None
+    tail = None                   # added tail
     for currData in inputList:
         if inputList == -1:
             break
@@ -24,12 +25,10 @@ def takeInput():                # taking input and converting it into a linked l
         newNode = Node(currData)
         if head is None:
             head = newNode 
-        else:
-            curr = head
-            while curr.next is not None:
-                curr = curr.next
-            curr.next = newNode
-
+            tail = newNode
+        else:                      # shifting tail instead of traversing through the entrire list
+            tail.next = newNode     
+            tail = newNode
     return head 
 
 head = takeInput()     # call for linked list formatio
