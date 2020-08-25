@@ -9,8 +9,10 @@ class Node :
         
 def length(head):
     count = 0
-    while head is not None:
+    curr  = head
+    while curr is not None:
         count += 1
+        curr = curr.next
     return count
         
     
