@@ -71,9 +71,34 @@ def insertAtI(head, i, data):
 
     return head
 
+# insert at ith position recursively
+def insertAtIR(head, i, data):
+    if i < 0:               # if position is invalid
+        return head
+    
+    if i == 0:
+        newNode = Node(data)  # creating the asked node
+        newNode.next = head     # linking it with head
+        return newNode       # returning the newly added linked node
+
+    if head is None:       # in case position is greater than length of function
+        return None       # written after i == 0 so that i == length case is not ignroed
+
+    smallHead = insertAtIR(head.next, i - 1, data)
+    head.next = smallHead      # joining returned newNode to rest of the list
+    return head               # returning linked head to so that it can join rest of the list by recursive calls
+
 
 
 head = takeInput()
 printLL(head)
-head = insertAtI(head, 0, 9)
+head = insertAtIR(head, 0, 9)
+printLL(head)
+head = insertAtIR(head, 5, 9)
+printLL(head)
+head = insertAtIR(head, 4, 9)
+printLL(head)
+head = insertAtIR(head,-1, 9)
+printLL(head)
+head = insertAtIR(head, 2, 9)
 printLL(head)
