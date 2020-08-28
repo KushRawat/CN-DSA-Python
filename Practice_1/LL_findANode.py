@@ -30,7 +30,7 @@ def findNode(head, n) :
             curr = curr.next
         count += 1
         
-    if count == length(head):
+    if curr is None:    # to handle the case when n is not peresent in linked list
         return -1
 
 
