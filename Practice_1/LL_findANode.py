@@ -22,20 +22,16 @@ def findNode(head, n) :
     count = 0
     curr = head
     
-    while count < length(head):
+    for i in range(length(head)):
         if curr.data == n:
             return count
-        break
+            break
         else:
-            count += 1
             curr = curr.next
-            
-    if curr is None:
+        count += 1
+        
+    if count == length(head):
         return -1
-    else:
-        return count
-
-
 
 
 #Taking Input Using Fast I/O
