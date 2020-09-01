@@ -31,5 +31,5 @@ def takeInput():                # taking input and converting it into a linked l
             tail = newNode
     return head 
 
-head = takeInput()     # call for linked list formatio
-printLL(head)           # call for printing the linked list
+# head = takeInput()     # call for linked list formatio
+# printLL(head)           # call for printing the linked list
