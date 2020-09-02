@@ -26,7 +26,8 @@ class StackUsingLL:
         
         data = self.__head.data
         self.__head = self.__head.next
-        self.__count += 1
+        self.__count -= 1
+        return data
         
     
     # Return 0 if stack is empty. Don't display any other message
