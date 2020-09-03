@@ -3,6 +3,9 @@
 
 def MBR(string):
     
+    if len(string) == 0:
+        return 0
+    
     if len(string) % 2 != 0:
         return -1
     
@@ -24,7 +27,7 @@ def MBR(string):
         
         count = 0
         
-        for char in stack:
+        while len(stack) != 0:
             
             c1 = stack.pop()
             c2 = stack.pop()
@@ -35,7 +38,7 @@ def MBR(string):
             else:
                 count += 2
                 
-    return count
+        return count
 
 
 string = input()
