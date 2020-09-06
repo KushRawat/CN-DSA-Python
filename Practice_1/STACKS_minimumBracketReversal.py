@@ -41,6 +41,4 @@ def MBR(string):
         return count
 
 
-string = input()
-ans  = MBR(string)
-print(ans)
+
