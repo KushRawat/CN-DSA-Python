@@ -24,16 +24,19 @@ def printTree(root):            # creating function to print tree using recursio
     printTree(root.left)        # recursion calls
     printTree(root.right)
 
-btn1 = BinaryTreeNode(1)        # creating Nodes with data
-btn2 = BinaryTreeNode(2)        
-btn3 = BinaryTreeNode(3)
-btn4 = BinaryTreeNode(4)
-btn5 = BinaryTreeNode(5)
+def treeInput():            # taking data as input to create binary tree recursively
 
+    rootData = int(input())
 
-btn1.left = btn2                # linking the nodes in a tree structure
-btn1.right = btn3
-btn2.left = btn4
-btn2.right = btn5
+    if rootData == -1:      # this base case is to stop further formation of tree
+        return None
 
-printTree(btn1)
+    root = BinaryTreeNode(rootData)     #creating a node
+    leftTree = treeInput()              # taking input for left node
+    rightTree = treeInput()             # taking input for right node
+    root.left = leftTree                # linking input nodes to root
+    root.right = rightTree
+    return root
+
+root = treeInput()
+printTree(root)
