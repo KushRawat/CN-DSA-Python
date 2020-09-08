@@ -38,5 +38,16 @@ def treeInput():            # taking data as input to create binary tree recursi
     root.right = rightTree
     return root
 
+def numNodes(root):
+
+    if root == None:            # base case
+        return 0
+
+    leftCount = numNodes(root.left)
+    rightCount = numNodes(root.right)
+
+    return 1 + leftCount + rightCount  
+
 root = treeInput()
 printTree(root)
+print(numNodes(root))
