@@ -48,6 +48,19 @@ def numNodes(root):
 
     return 1 + leftCount + rightCount  
 
+def largestData(root):
+
+    if root == None: # ideally return - infinity               # base case
+        return -1
+
+    leftLargest = largestData(root.left)
+    rightLargest = largestData(root.right)
+
+    largest = max(leftLargest, rightLargest, root.data)
+
+    return largest
+
+
 root = treeInput()
-printTree(root)
-print(numNodes(root))
+
+print(largestData(root))
