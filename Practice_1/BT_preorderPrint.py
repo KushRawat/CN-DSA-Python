@@ -6,15 +6,12 @@ class BinaryTreeNode:
         self.right = None
 
 def preOrder(root):
-    
-    if root == None:
-        return
-    
-    print(root.left.data, end = '')
-    preOrder(root.left)
-    
-    print(root.right.data, end = '')
-    preOrder(root.right)
+
+    if root:
+
+        print(root.data, end = ' ')
+        preOrder(root.left)
+        preOrder(root.right)
 
 def buildLevelTree(levelorder):
     index = 0
