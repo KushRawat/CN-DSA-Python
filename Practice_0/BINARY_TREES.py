@@ -60,7 +60,21 @@ def largestData(root):
 
     return largest
 
+def numLeafNodes(root):
+
+    if root is None:   # to take care of the case when one side of a node is none
+        return 0
+
+    if root.left is None and root.right is None:
+        return 1
+
+    leftLeaves = numLeafNodes(root.left)
+    rightLeaves = numLeafNodes(root.right)
+
+    return leftLeaves + rightLeaves
+
+
 
 root = treeInput()
 
-print(largestData(root))
+print(numLeafNodes(root))
