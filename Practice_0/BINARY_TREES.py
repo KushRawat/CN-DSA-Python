@@ -97,7 +97,20 @@ def printDepthKV2(root, k, d = 0):
     printDepthKV2(root.left, k , d + 1)
     printDepthKV2(root.right, k , d + 1)
 
-root = treeInput()
+def removeLeaves(root):    # BT - 2
 
-printDepthK(root, 2)
-printDepthKV2(root, 2)
+    if root is None:    # empty tree
+        return None
+
+    if root.left is None and root.right is None:    # if root is leaf
+        return None
+
+    root.left = removeLeaves(root.left)      # joining None to root's left side
+    root.right = removeLeaves(root.right)
+    
+    return root                    # returning root with updated tree
+
+root = treeInput()
+printTree(root)
+root = removeLeaves(root)        # returning root with updated tree in root variable
+printTree(root)
