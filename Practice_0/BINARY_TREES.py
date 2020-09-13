@@ -73,8 +73,20 @@ def numLeafNodes(root):
 
     return leftLeaves + rightLeaves
 
+def printDepthK(root, k):  # to find depth at K level, first level being 0
+
+    if root is None:
+        return 0
+
+    if k is 0:
+        print(root.data, end = " ")
+        return
+
+    printDepthK(root.left, k - 1)
+    printDepthK(root.right, k - 1)
+
 
 
 root = treeInput()
 
-print(numLeafNodes(root))
+printDepthK(root, 2)
