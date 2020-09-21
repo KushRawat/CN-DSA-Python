@@ -3,6 +3,16 @@
 
 from sys import stdin
 
+def swap(arr, start, end):
+
+    arr[start], arr[end] = arr[end], arr[start]
+
+def Reverse(arr, start, end):
+
+    while start < end:
+        swap(arr, start, end)
+        start += 1
+        end -= 1
 
 def rotate(arr, n, d):
 
@@ -12,9 +22,9 @@ def rotate(arr, n, d):
     if d >= n:
         d = d % N
 
+    Reverse(arr, 0, n - 1)
     Reverse(arr, 0, n - 1 - d)
-    Reverse(arr, 0, n - 1 - d)
-    Reverse(arr, 0, n - d, n - 1)
+    Reverse(arr, n - d, n - 1)
 
 
 #Taking Input Using Fats I/O
