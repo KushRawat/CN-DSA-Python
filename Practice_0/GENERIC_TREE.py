@@ -35,20 +35,26 @@ def printTreeDetailed(root):
 
         printTreeDetailed(child)
 
-n1 = GTnode(5)
-n2 = GTnode(2)
-n3 = GTnode(9)
-n4 = GTnode(8)
-n5 = GTnode(7)
-n6 = GTnode(15)
-n7 = GTnode(1)
+def takeTreeInput():
 
-n1.children.append(n2)
-n1.children.append(n3)
-n1.children.append(n4)
-n1.children.append(n5)
+    print("Enter root data")        # entering the root
+    rootData = int(input())
 
-n3.children.append(n6)
-n3.children.append(n7)
+    if rootData == -1:              # if root is none
+        return None
 
-printTreeDetailed(n1)
+    root = GTnode(rootData)             # creating node using the root
+
+    print("Enter number of children for", rootData)             # asking for root's children
+    childrenCount = int(input())
+
+    for i in range (childrenCount):                             # iterating on number of children if any
+
+        child = takeTreeInput()                         # calling child one by one recursively
+        root.children.append(child)                     # linking the child to the root's children
+    
+    return root
+
+
+root = takeTreeInput()
+printTreeDetailed(root)
