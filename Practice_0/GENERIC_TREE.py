@@ -55,6 +55,18 @@ def takeTreeInput():
     
     return root
 
+def numNodes(root):
+
+    if root is None:
+        return 0
+
+    count = 1
+
+    for child in root.children:  # this handles the base case since recursion is being called only if there's a child present
+        count = count + numNodes(child)
+
+    return count
 
 root = takeTreeInput()
 printTreeDetailed(root)
+print(numNodes(root))
