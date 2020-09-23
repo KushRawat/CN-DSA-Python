@@ -15,11 +15,10 @@ def containsX(tree, x):
     
     for child in tree.children:
         
-        if child.data == x:
+        if containsX(child, x) is True:
             return True
-        
-        containsX(child, x)
-        
+
+    return False
 
 def createLevelWiseTree(arr):
     root = treeNode(int(arr[0]))
