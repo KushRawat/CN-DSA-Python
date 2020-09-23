@@ -67,6 +67,40 @@ def numNodes(root):
 
     return count
 
-root = takeTreeInput()
+import queue
+def takeTreeInputLevelWise():
+
+    q = queue.Queue()
+
+    print("Enter root")
+    rootData = int(input())
+
+    if rootData == -1:          # not a base case but an edge case
+        return None
+
+    root = GTnode(rootData)
+    q.put(root)
+
+    while not(q.empty()):
+
+        currNode = q.get()
+
+        print("Enter the number of children for", currNode.data)
+        numChildren = int(input())
+
+        for i in range (numChildren):
+
+            print("Enter next child for", currNode.data)
+            childData = int(input())
+
+            child = GTnode(childData)
+
+            currNode.children.append(child)
+
+            q.put(child)
+
+    return root
+
+root = takeTreeInputLevelWise()
 printTreeDetailed(root)
 print(numNodes(root))
