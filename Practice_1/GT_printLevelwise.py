@@ -5,29 +5,19 @@ class treeNode:
     def __str__(self):
         return str(self.data)
 
-import queue 
+
 def printLevelWiseTree(tree):
 
-    q = queue.Queue()
+    q = [tree]
 
-    if tree is None:
-        return 
+    while q:
 
-    q.put(tree)
+        currNode = q.pop(0)
 
-    while not(q.empty()):
-
-        currNode = q.get()
-
-        print(currNode.data, end = ':')
-
-        for child in (currNode.children):
-
-            print(child, end = ',')
-
-            q.put(child)
-
-        print()
+        print(currNode.data, ":", ",".join(str(child) for child in currNode.children), sep = '')
+        
+        for child in currNode.children:
+            q.append(child)
 
 def createLevelWiseTree(arr):
     root = treeNode(int(arr[0]))
