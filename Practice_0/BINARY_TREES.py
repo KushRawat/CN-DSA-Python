@@ -160,6 +160,42 @@ def isBalanced2(root):             # will be used in getHeightAndCheckBalance fu
 
     return isRootBalanced
 
-root = treeInput()
+import queue                        # BT - 2
+def takeLevelWiseTreeInput():
+
+    q = queue.Queue()
+
+    print("Enter root")
+    rootData = int(input())
+
+    if (rootData == -1):
+        return None
+
+    root = BinaryTreeNode(rootData)
+
+    q.put(root)
+
+    while (not(q.empty())):
+
+        currNode = q.get()
+
+        print("Enter left child of", currNode.data)
+        leftChildData = int(input())
+        if leftChildData != -1:
+            leftChild = BinaryTreeNode(leftChildData)
+            currNode.left = leftChildData
+            q.put(leftChild)
+
+        print("Enter right child of", currNode.data)
+        rightChildData = int(input())
+        if rightChildData != -1:
+            rightChild = BinaryTreeNode(rightChildData)
+            currNode.right = rightChildData
+            q.put(rightChild)
+    
+    return root
+
+
+root = takeLevelWiseTreeInput()
 printTree(root)
-print(isBalanced2(root))
+
