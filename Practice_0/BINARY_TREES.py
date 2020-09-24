@@ -110,19 +110,19 @@ def removeLeaves(root):    # BT - 2
     
     return root                    # returning root with updated tree
 
-def height(root):      # for checking isbalanced function
+def height(root):      # for checking isbalanced function B2
 
     if root is None:
         return 0
 
     return 1 + max(height(root.left), height(root.right))
 
-def  isBalanced(root):      # BT - 2
+def isBalanced(root):      # BT - 2
 
     if root is None:        # if tree is empty, it is balanced
         return True
 
-    lh = height(root.left)
+    lh = height(root.left)  
     rh = height(root.right)
 
     if lh - rh > 1 or rh - lh > 1:
@@ -136,6 +136,30 @@ def  isBalanced(root):      # BT - 2
     else:
         return False
 
+def getHeightAndCheckBalanced(root): # BT -2 improved isBalanced
+
+    if root is None:
+        return 0, True
+
+    lh, isLeftBalanced = getHeightAndCheckBalanced(root.left)
+    rh, isRightBalanced = getHeightAndCheckBalanced(root.right)
+
+    h = 1 + max(lh, rh)
+
+    if lh - rh > 1 or rh - lh > 1:
+        return h, False
+
+    if isLeftBalanced and isRightBalanced:
+        return h, True
+    else:
+        return h, False
+
+def isBalanced2(root):             # will be used in getHeightAndCheckBalance function
+
+    h, isRootBalanced = getHeightAndCheckBalanced(root)
+
+    return isRootBalanced
+
 root = treeInput()
 printTree(root)
-print(isBalanced(root))
+print(isBalanced2(root))
