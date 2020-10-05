@@ -17,7 +17,7 @@ def reverseLinkedListRec(head) :
 
     smallhead = reverseLinkedListRec(head.next)
 
-    tail = head
+    tail = smallhead
     while tail.next is not None:
         tail = tail.next
 
