@@ -7,6 +7,18 @@ class Node :
         self.data = data
         self.next = None
 
+def reverseOptimal2(head):
+
+    if head is None or head.next is None:
+        return head
+
+    smallHead = reverseOptimal2(head.next)
+    tail = head.next
+    tail.next = head
+    head.next = None
+
+    return smallHead
+
 def reverseOptimal(head):  
 
     if head is None or head.next is None:
@@ -78,7 +90,7 @@ while t > 0 :
     
     head = takeInput()
 
-    head, tail = reverseOptimal(head)
+    head = reverseOptimal2(head)
     printLinkedList(head)
 
     t -= 1
