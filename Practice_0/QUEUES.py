@@ -32,14 +32,38 @@ class QueueUsingArray:
     def isEmpty(self):
         return self.size() == 0
 
-q = QueueUsingArray()
-q.enqueue(1)
-q.enqueue(2)
-q.enqueue(3)
-q.enqueue(4)
+# q = QueueUsingArray()
+# q.enqueue(1)
+# q.enqueue(2)
+# q.enqueue(3)
+# q.enqueue(4)
 
-while q.isEmpty() is False:
-    print(q.front())
-    q.dequeue()
+# while q.isEmpty() is False:
+#     print(q.front())
+#     q.dequeue()
 
-print(q.dequeue())
+# print(q.dequeue())
+
+# INBUILT QUEUE
+
+import queue
+
+q = queue.Queue()
+
+q.put(1)
+q.put(2)
+q.put(3)
+
+while not q.empty():
+    print(q.get())
+
+print()
+# INBUILT STACK
+
+q = queue.LifoQueue()
+q.put(1)
+q.put(2)  
+q.put(3)
+
+while not q.empty():
+    print(q.get())
