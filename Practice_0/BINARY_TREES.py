@@ -183,19 +183,42 @@ def takeLevelWiseTreeInput():
         leftChildData = int(input())
         if leftChildData != -1:
             leftChild = BinaryTreeNode(leftChildData)
-            currNode.left = leftChildData
+            currNode.left = leftChild
             q.put(leftChild)
 
         print("Enter right child of", currNode.data)
         rightChildData = int(input())
         if rightChildData != -1:
             rightChild = BinaryTreeNode(rightChildData)
-            currNode.right = rightChildData
+            currNode.right = rightChild
             q.put(rightChild)
     
     return root
 
+def nodeToRootPath(root, s):
+
+    if root is None:
+        return None
+
+    if root.data == s:
+        
+        l = list()
+        l.append(root.data)
+        return l
+
+    leftOutput = nodeToRootPath(root.left, s)
+    if leftOutput != None:
+        leftOutput.append(root.data)
+        return leftOutput
+
+    rightOutput = nodeToRootPath(root.right, s)
+    if rightOutput != None:
+        rightOutput.append(root.data)
+        return rightOutput
+    else:
+        return None
 
 root = takeLevelWiseTreeInput()
 printTree(root)
+print(nodeToRootPath(root, 5))
 
